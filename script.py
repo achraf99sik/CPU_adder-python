@@ -18,9 +18,18 @@ def fullAdder(a, b , c):
     else:
         return [int(sum[0]),int(Carry)]
 
+def DecToBin(num):
+    binary_8bit = list(format(num, '08b'))  # '08b' means 8-bit binary
+    binary_8bit.reverse()
+    return binary_8bit
+
+def BinToDec(bin):
+    return int(bin, 2)
+
 # print(fullAdder(a, b, c))
-a = [0,0,0,0,0,0,0,0]
-b = [0,0,0,0,0,0,0,0]
+a = DecToBin(int(input("enter first number: ")))
+b = DecToBin(int(input("enter second number: ")))
+
 res = []
 cache = [halfAdder(a[0],b[0])]
 res.insert(0,cache[0][0])
@@ -45,4 +54,9 @@ cache.append(fullAdder(a[7],b[7],cache[6][1]))
 #         cache.append(fullAdder(a[i+1],b[i+1],cache[i][1]))
 
 # bitadder()
-print(res)
+
+
+res = "".join(map(str,res))
+
+print("\nresult in decimal:",BinToDec(res))
+print("result in binary:",res)
