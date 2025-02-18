@@ -28,8 +28,6 @@ def BinToDec(bin):
 
 a = DecToBin(int(input("enter first number: ")))
 b = DecToBin(int(input("enter second number: ")))
-print(a)
-print(b)
 
 res = []
 cache = [halfAdder(a[0],b[0])]
@@ -43,7 +41,6 @@ def bitadder(bit):
         cache.append(fullAdder(a[i+1],b[i+1],cache[i][1]))
 
 bitadder(bits-1)
-
 
 res = "".join(map(str,res))
 
